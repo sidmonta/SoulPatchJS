@@ -1,0 +1,25 @@
+{
+  "name": "soulpatchjs",
+  "version": "0.0.1",
+  "description": "A tiny version of Barba.JS",
+  "main": "src/soulpatch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidmonta/SoulPatchJS.git"
+  },
+  "keywords": [
+    "Barba",
+    "SoulPatch",
+    "PJAX",
+    "PAJAX"
+  ],
+  "author": "Sidmonta <sidmonta.15@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sidmonta/SoulPatchJS/issues"
+  },
+  "homepage": "https://github.com/sidmonta/SoulPatchJS#readme"
+}
