@@ -3,7 +3,6 @@ class SoulPatch {
   constructor () {
     const links = Array.from(document.querySelectorAll('a[sp-href]'));
     this.container = document.querySelector('[sp-container]');
-    this._classDone();
 
     links.forEach( link => {
       link.addEventListener('click', evt => {
@@ -19,17 +18,8 @@ class SoulPatch {
   go (url) {
     // TODO: Controllo se ho premuto lo stesso URL
     window.history.pushState(null, null, url);
-    this._onChanged();
-  }
-
-  _classDone () {
-    this.container.classList.remove('loading');
-    this.container.classList.add('done');
-  }
-
-  _classLoading () {
-    this.container.classList.remove('done');
     this.container.classList.add('loading');
+    this._onChanged();
   }
 
   _onChanged () {
@@ -45,16 +35,17 @@ class SoulPatch {
 
     outViewPromise
       .then(() => { this._animating = false; })
-      .then(() => this._inView(path) );
+      .then(() => this._inView(path));
   }
 
   _outView () {
     return new Promise(resolve => {
       const onTransitionEnd = () => {
         this.container.removeEventListener('transitionend', onTransitionEnd);
+        this.container.classList.remove('loading');
         resolve();
       };
-      this._classLoading();
+      this.container.classList.add('loading');
       this.container.addEventListener('transitionend', onTransitionEnd);
       this.container.dispatchEvent(this._spStartEvt);
     });
@@ -69,7 +60,6 @@ class SoulPatch {
         resolve();
       };
 
-      this._classDone();
       this.container.addEventListener('transitionend', onTransitionEnd);
       this.container.dispatchEvent(this._spEndEvt);
     });

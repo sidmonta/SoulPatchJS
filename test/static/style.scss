@@ -1,3 +1,4 @@
+@import "transation.scss";
 
 * {
   box-sizing: border-box; }
@@ -19,28 +20,16 @@ html, body {
   width: 100%;
   height: 100%;
 
-  transition: transform 1s cubic-bezier(0,0,0.3,1),
-                opacity 1s cubic-bezier(0,0,0.3,1),
-                border-radius 1s cubic-bezier(0,0,0.3,1);
-  transform: scale(0.95);
+  transition: border-radius 3s cubic-bezier(0,0,0.3,1);
+
   pointer-events: none;
 
-  opacity: 0;
+  opacity: 1;
   border: 2px solid green;
   border-radius: 0;
 
-
-  &.done {
-    transform: none;
-    pointer-events: auto;
-
-    opacity: 1;
-  }
-
   &.loading {
-    transition: transform 1s cubic-bezier(0,0,0.3,1),
-                  opacity 1s cubic-bezier(0,0,0.3,1),
-                  border-radius 1s cubic-bezier(0,0,0.3,1);
+    transition: border-radius 1s cubic-bezier(0,0,0.3,1);
 
     border-radius: 50%;
     background-color: yellow;
